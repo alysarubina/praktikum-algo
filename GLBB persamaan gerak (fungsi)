@@ -1,0 +1,28 @@
+import numpy as np
+import matplotlib.pyplot as plt
+
+# Fungsi posisi x(t) untuk GLBB
+def posisi(t, a):
+    return 0.5 * a * t**2
+
+# Parameter gerak
+a = 2  # percepatan tetap (m/s^2)
+t_max = 100  # waktu maksimum (100 detik)
+
+# Rentang waktu (dalam detik)
+t = np.arange(0, t_max + 1, 1)  # waktu dari 0 hingga 100 detik
+
+# Menghitung posisi
+x = posisi(t, a)
+
+# Membuat grafik
+plt.figure(figsize=(10, 6))
+plt.plot(t, x, label=f"x(t) = 0.5 * {a} * t^2", color="green", linestyle="-")
+
+# Menambahkan label, judul, dan grid
+plt.xlabel("Waktu (t) [detik]")
+plt.ylabel("Posisi (x) [meter]")
+plt.title("Gerak Lurus Berubah Beraturan (GLBB)")
+plt.legend()
+plt.grid(True)
+plt.show()
