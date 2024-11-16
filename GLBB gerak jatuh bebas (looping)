@@ -1,0 +1,32 @@
+import numpy as np
+import matplotlib.pyplot as plt
+
+# Parameter gerak
+g = 9.8  # percepatan gravitasi (m/s^2)
+t_max = 2 * 60  # waktu maksimum (2 menit dalam detik)
+
+# Rentang waktu (dalam detik)
+t = np.arange(0, t_max + 1, 1)  # waktu dari 0 hingga 120 detik
+
+# Inisialisasi list untuk posisi x
+x = []
+
+# Menggunakan looping untuk menghitung posisi x(t) = 0.5 * g * t^2 pada setiap waktu t
+for waktu in t:
+    posisi = 0.5 * g * waktu**2  # Menghitung posisi untuk waktu t tertentu
+    x.append(posisi)  # Menambahkan posisi ke dalam list x
+
+# Mengonversi list x menjadi array numpy untuk memudahkan plotting
+x = np.array(x)
+
+# Membuat grafik
+plt.figure(figsize=(10, 6))
+plt.plot(t, x, label=r"$x(t) = \frac{1}{2} g t^2$", color="red", linestyle="-")
+
+# Menambahkan label, judul, dan grid
+plt.xlabel("Waktu (t) [detik]")
+plt.ylabel("Posisi (x) [meter]")
+plt.title("Grafik Gerak Jatuh Bebas")
+plt.legend()
+plt.grid(True)
+plt.show()
