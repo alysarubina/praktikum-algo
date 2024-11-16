@@ -1,0 +1,27 @@
+import numpy as np
+import matplotlib.pyplot as plt
+
+# Parameter gerak
+v = 20  # kecepatan konstan 20 m/s
+durasi = 5 * 60  # waktu total dalam detik (5 menit)
+
+# Definisi fungsi GLB x(t)
+def x(t):
+    return v * t
+
+# Mendefinisikan rentang waktu (t)
+t = np.arange(0, durasi + 1, 1)  # waktu dalam detik, dari 0 hingga 300 detik
+
+# Mendefinisikan nilai x untuk setiap nilai t
+y = x(t)
+
+# Menampilkan grafik f(x) = x(t)
+plt.plot(t, y, color='pink', linestyle='-', label="Grafik GLB")
+
+# Menambahkan label, judul, dan grid
+plt.xlabel("Waktu (t) [detik]")
+plt.ylabel("Posisi (x) [meter]")
+plt.title("Grafik Gerak Lurus Beraturan (GLB)")
+plt.legend()
+plt.grid(True)
+plt.show()
