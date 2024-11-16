@@ -5,18 +5,22 @@ import matplotlib.pyplot as plt
 v = 20  # kecepatan konstan 20 m/s
 durasi = 5 * 60  # waktu total dalam detik (5 menit)
 
-# Definisi fungsi GLB x(t)
-def x(t):
-    return v * t
-
 # Mendefinisikan rentang waktu (t)
 t = np.arange(0, durasi + 1, 1)  # waktu dalam detik, dari 0 hingga 300 detik
 
-# Mendefinisikan nilai x untuk setiap nilai t
-y = x(t)
+# Inisialisasi list untuk posisi x
+x = []
 
-# Menampilkan grafik f(x) = x(t)
-plt.plot(t, y, color='pink', linestyle='-', label="Grafik GLB")
+# Menggunakan looping untuk menghitung posisi x(t) = v * t pada setiap waktu t
+for waktu in t:
+    posisi = v * waktu  # Menghitung posisi untuk waktu t tertentu
+    x.append(posisi)  # Menambahkan posisi ke dalam list x
+
+# Mengonversi list x menjadi array numpy untuk memudahkan plotting
+x = np.array(x)
+
+# Menampilkan grafik
+plt.plot(t, x, color='pink', linestyle='-', label="Grafik GLB")
 
 # Menambahkan label, judul, dan grid
 plt.xlabel("Waktu (t) [detik]")
