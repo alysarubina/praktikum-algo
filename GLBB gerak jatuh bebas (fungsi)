@@ -1,0 +1,28 @@
+import numpy as np
+import matplotlib.pyplot as plt
+
+# Fungsi posisi x(t) untuk Gerak Jatuh Bebas
+def posisi_jatuh_bebas(t, g):
+    return 0.5 * g * t**2
+
+# Parameter gerak
+g = 9.8  # percepatan gravitasi (m/s^2)
+t_max = 2 * 60  # waktu maksimum (2 menit dalam detik)
+
+# Rentang waktu (dalam detik)
+t = np.arange(0, t_max + 1, 1)  # waktu dari 0 hingga 120 detik
+
+# Menghitung posisi
+x = posisi_jatuh_bebas(t, g)
+
+# Membuat grafik
+plt.figure(figsize=(10, 6))
+plt.plot(t, x, label=r"$x(t) = \frac{1}{2} g t^2$", color="red", linestyle="-",)
+
+# Menambahkan label, judul, dan grid
+plt.xlabel("Waktu (t) [detik]")
+plt.ylabel("Posisi (x) [meter]")
+plt.title("Grafik Gerak Jatuh Bebas")
+plt.legend()
+plt.grid(True)
+plt.show()
